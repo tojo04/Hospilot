@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ask plain-English questions about grounded hospital operations data.">
+  <title>Ask Hospilot — Grounded Hospital Intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f7b77'/%3E%3Cpath d='M32 17v30M17 32h30' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Ask Hospilot home">
+      <span class="brand-mark"><i data-lucide="heart-pulse"></i></span>
+      <span><strong>Ask Hospilot</strong><small>Grounded hospital intelligence</small></span>
+    </a>
+    <div id="health-pill" class="health-pill"><span class="pulse"></span><span>Checking system</span></div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="eyebrow"><i data-lucide="database-zap"></i> Natural language → verified SQL → grounded answer</div>
+      <h1>Ask your hospital data.<br><span>See exactly how it answered.</span></h1>
+      <p>Explore a synthetic operations dataset covering beds, staffing, visits, revenue, supplies, and more. Every supported answer comes from a visible read-only query.</p>
+    </section>
+
+    <section class="ask-card" aria-labelledby="ask-heading">
+      <div class="ask-heading">
+        <span class="assistant-mark"><i data-lucide="sparkles"></i></span>
+        <div><h2 id="ask-heading">What would you like to know?</h2><p>Ask in everyday language. Rephrasing is welcome.</p></div>
+      </div>
+      <form id="ask-form">
+        <div class="question-shell">
+          <i data-lucide="message-square-text"></i>
+          <textarea id="question" maxlength="1000" required placeholder="How many ICU beds are available right now?"></textarea>
+          <span id="question-count">0 / 1000</span>
+        </div>
+        <div class="ask-actions">
+          <div class="suggestions" aria-label="Example questions">
+            <button type="button" class="chip" data-question="How many ICU beds are free right now?"><i data-lucide="bed-single"></i> ICU availability</button>
+            <button type="button" class="chip" data-question="Which wards have the highest bed occupancy?"><i data-lucide="chart-no-axes-column-increasing"></i> Ward occupancy</button>
+            <button type="button" class="chip" data-question="Which areas are short-staffed tonight?"><i data-lucide="users-round"></i> Night staffing</button>
+            <button type="button" class="chip" data-question="Which supplies are below minimum stock?"><i data-lucide="package-search"></i> Low stock</button>
+          </div>
+          <button id="ask-button" class="ask-button" type="submit"><i data-lucide="arrow-up"></i><span>Ask</span></button>
+        </div>
+      </form>
+    </section>
+
+    <section id="loading" class="loading-card" hidden aria-live="polite">
+      <div class="orb"><i data-lucide="sparkles"></i></div>
+      <div><strong id="loading-title">Understanding your question</strong><p id="loading-copy">Checking the available schema and planning a safe query…</p></div>
+      <div class="loading-line"><span></span></div>
+    </section>
+
+    <section id="result" class="result-grid" hidden aria-live="polite">
+      <article class="answer-card">
+        <div class="section-label"><span class="label-icon success"><i data-lucide="message-circle-check"></i></span><span>Grounded answer</span></div>
+        <div id="answer" class="answer"></div>
+        <div id="interpretation-wrap" class="interpretation" hidden><i data-lucide="scan-search"></i><span id="interpretation"></span></div>
+      </article>
+
+      <article id="evidence-card" class="evidence-card">
+        <div class="evidence-header">
+          <div class="section-label"><span class="label-icon"><i data-lucide="shield-check"></i></span><span>Evidence</span></div>
+          <span id="row-count" class="row-count"></span>
+        </div>
+        <details open>
+          <summary><span><i data-lucide="terminal-square"></i> Generated SQL</span><i class="chevron" data-lucide="chevron-down"></i></summary>
+          <div class="code-wrap"><button id="copy-sql" type="button" aria-label="Copy SQL"><i data-lucide="copy"></i></button><pre><code id="sql"></code></pre></div>
+        </details>
+        <details>
+          <summary><span><i data-lucide="table-2"></i> Retrieved rows</span><i class="chevron" data-lucide="chevron-down"></i></summary>
+          <div id="rows" class="rows-wrap"></div>
+        </details>
+      </article>
+    </section>
+
+    <section id="error-card" class="error-card" hidden role="alert">
+      <span><i data-lucide="circle-alert"></i></span><div><strong>Couldn’t answer that question</strong><p id="error-message"></p></div>
+    </section>
+
+    <footer><i data-lucide="shield-check"></i> Synthetic assessment data · Read-only SQL · Answers constrained to retrieved rows</footer>
+  </main>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
