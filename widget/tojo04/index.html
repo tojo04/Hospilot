@@ -325,8 +325,65 @@
     .plan-toolbar { padding: 13px 16px; background: var(--health-950); }
     .plan-title { display: flex; align-items: center; gap: 9px; }
     .plan-title svg { width: 17px; height: 17px; color: #67e8c8; }
+
+    /* Operations charts */
+    .analytics-section { margin-bottom: 20px; }
+    .section-heading { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 12px; }
+    .section-heading h2 { margin: 0; color: var(--health-950); font-size: 15px; letter-spacing: -.25px; }
+    .section-heading p { margin: 3px 0 0; color: #809794; font-size: 10px; }
+    .updated-at { display: flex; align-items: center; gap: 5px; color: #8ba19e; font-size: 9px; }
+    .updated-at svg { width: 12px; height: 12px; }
+    .analytics-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, .75fr); gap: 20px; }
+    .chart-card { padding: 19px 20px 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(7,59,58,.04); }
+    .chart-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .chart-heading { display: flex; gap: 9px; align-items: flex-start; }
+    .chart-heading > svg { width: 17px; height: 17px; margin-top: 1px; color: var(--health-600); }
+    .chart-title { color: var(--health-950); font-size: 13px; font-weight: 650; }
+    .chart-subtitle { margin-top: 3px; color: #829895; font-size: 9px; }
+    .chart-filter { padding: 3px; display: flex; gap: 2px; border: 1px solid #dfebea; border-radius: 8px; background: #f7fbfa; }
+    .chart-filter button { padding: 5px 8px; border: 0; border-radius: 6px; background: transparent; color: #829794; font-size: 9px; }
+    .chart-filter button.active { color: var(--health-800); background: #fff; box-shadow: 0 1px 4px rgba(7,59,58,.1); font-weight: 650; }
+    .flow-summary { display: flex; gap: 24px; margin: 17px 0 3px 28px; }
+    .flow-metric { position: relative; }
+    .flow-metric::before { content: ''; position: absolute; left: -12px; top: 4px; width: 6px; height: 6px; border-radius: 50%; background: var(--health-500); }
+    .flow-metric.discharges::before { background: #67a9d8; }
+    .flow-metric.net::before { background: #f59e66; }
+    .flow-metric strong { display: block; color: var(--health-950); font-size: 16px; line-height: 1; }
+    .flow-metric span { display: block; margin-top: 4px; color: #829895; font-size: 8px; text-transform: uppercase; letter-spacing: .55px; }
+    .line-chart { display: block; width: 100%; height: 168px; overflow: visible; }
+    .chart-grid-line { stroke: #e9f1f0; stroke-width: 1; }
+    .chart-axis-label { fill: #91a5a2; font-size: 9px; font-family: inherit; }
+    .chart-area { fill: url(#admissions-fill); }
+    .chart-line { fill: none; stroke: var(--health-500); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 4px 5px rgba(20,184,166,.16)); }
+    .chart-line.secondary { stroke: #67a9d8; stroke-width: 2; stroke-dasharray: 5 5; filter: none; }
+    .chart-point { fill: #fff; stroke: var(--health-500); stroke-width: 2; }
+    .chart-point.current { fill: var(--health-500); stroke: #d9faf4; stroke-width: 5; }
+    .chart-now-line { stroke: #b9d7d3; stroke-width: 1; stroke-dasharray: 3 4; }
+    .chart-now-label { fill: var(--health-700); font-size: 8px; font-weight: 700; }
+    .donut-body { display: grid; grid-template-columns: 140px 1fr; align-items: center; gap: 20px; min-height: 204px; }
+    .donut-chart { width: 132px; height: 132px; position: relative; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(var(--health-600) 0 82%, #71c9d3 82% 95.7%, #f6aa70 95.7% 100%); box-shadow: inset 0 0 0 1px rgba(7,59,58,.05), 0 10px 24px rgba(7,59,58,.08); }
+    .donut-chart::before { content: ''; position: absolute; width: 92px; height: 92px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px #eef4f3; }
+    .donut-center { position: relative; text-align: center; }
+    .donut-center strong { display: block; color: var(--health-950); font-size: 25px; letter-spacing: -1px; }
+    .donut-center span { color: #829895; font-size: 8px; text-transform: uppercase; letter-spacing: .5px; }
+    .donut-legend { display: grid; gap: 11px; }
+    .legend-row { display: grid; grid-template-columns: 8px 1fr auto; align-items: center; gap: 7px; font-size: 10px; }
+    .legend-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--health-600); }
+    .legend-dot.vacant { background: #71c9d3; } .legend-dot.blocked { background: #f6aa70; }
+    .legend-label { color: #6c8481; }
+    .legend-value { color: var(--health-950); font-weight: 700; }
+    .capacity-note { margin-top: 2px; padding: 9px 10px; display: flex; align-items: flex-start; gap: 7px; border-radius: 9px; background: #fff8ef; color: #a55a1d; font-size: 9px; line-height: 1.45; }
+    .capacity-note svg { width: 13px; height: 13px; flex: 0 0 auto; }
+    .unit-row { padding: 10px 0; border-bottom: 1px solid #edf4f3; }
+    .unit-row:last-child { border-bottom: 0; }
+    .unit-row-top { display: flex; align-items: center; justify-content: space-between; font-size: 12px; }
+    .unit-meter { height: 4px; margin-top: 8px; overflow: hidden; border-radius: 999px; background: #edf4f3; }
+    .unit-meter span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--health-600), var(--health-500)); }
+    .unit-meter.warning span { background: linear-gradient(90deg, #ef8e54, #f4b06d); }
+    .unit-meter.critical span { background: linear-gradient(90deg, #e5635d, #f08a80); }
     @media (max-width: 768px) { aside { width: 100%; } .nav-item.active::before { display: none; } .search-wrap { flex: 1; } .search-bar { width: 100%; } }
-    @media (max-width: 560px) { .hospilot-launcher { right: 16px; bottom: 16px; } .launcher-copy small { display: none; } .hospilot-panel { right: 16px; bottom: 78px; } .hospilot-body { padding: 16px; } }
+    @media (max-width: 1024px) { .analytics-grid { grid-template-columns: 1fr; } .donut-body { grid-template-columns: 160px 1fr; } }
+    @media (max-width: 560px) { .hospilot-launcher { right: 16px; bottom: 16px; } .launcher-copy small { display: none; } .hospilot-panel { right: 16px; bottom: 78px; } .hospilot-body { padding: 16px; } .section-heading { align-items: flex-start; } .updated-at { display: none; } .chart-card { padding: 16px 14px 12px; } .chart-filter { display: none; } .flow-summary { margin-left: 14px; gap: 18px; } .donut-body { grid-template-columns: 130px 1fr; gap: 10px; } .donut-chart { width: 118px; height: 118px; } .donut-chart::before { width: 82px; height: 82px; } }
   </style>
 </head>
 <body>
@@ -404,16 +461,72 @@
         </div>
       </div>
 
+      <!-- Operations analytics -->
+      <section class="analytics-section" aria-labelledby="analytics-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="analytics-title">Operations at a glance</h2>
+            <p>Live capacity and patient-flow signals across the hospital</p>
+          </div>
+          <span class="updated-at"><i data-lucide="refresh-cw"></i> Updated 2 min ago</span>
+        </div>
+
+        <div class="analytics-grid">
+          <article class="chart-card">
+            <div class="chart-header">
+              <div class="chart-heading">
+                <i data-lucide="chart-spline"></i>
+                <div><div class="chart-title">Patient flow today</div><div class="chart-subtitle">Admissions and discharges by two-hour interval</div></div>
+              </div>
+              <div class="chart-filter" aria-label="Chart timeframe">
+                <button class="active" type="button" data-chart-period="today" aria-pressed="true">Today</button><button type="button" data-chart-period="week" aria-pressed="false">7 days</button>
+              </div>
+            </div>
+            <div class="flow-summary" aria-label="Today's patient flow totals">
+              <div class="flow-metric"><strong id="admissions-total">76</strong><span>Admissions</span></div>
+              <div class="flow-metric discharges"><strong id="discharges-total">61</strong><span>Discharges</span></div>
+              <div class="flow-metric net"><strong id="net-total">+15</strong><span>Net census</span></div>
+            </div>
+            <svg class="line-chart" viewBox="0 0 680 180" role="img" aria-labelledby="flow-chart-title flow-chart-desc">
+              <title id="flow-chart-title">Patient flow today</title>
+              <desc id="flow-chart-desc">Admissions peaked at 15 patients between 10 AM and noon. Discharges peaked at 12 patients around noon.</desc>
+              <defs><linearGradient id="admissions-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14b8a6" stop-opacity=".20"/><stop offset="1" stop-color="#14b8a6" stop-opacity="0"/></linearGradient></defs>
+              <line class="chart-grid-line" x1="44" y1="25" x2="646" y2="25"/><line class="chart-grid-line" x1="44" y1="65" x2="646" y2="65"/><line class="chart-grid-line" x1="44" y1="105" x2="646" y2="105"/><line class="chart-grid-line" x1="44" y1="145" x2="646" y2="145"/>
+              <text class="chart-axis-label y-axis-label" x="19" y="28">15</text><text class="chart-axis-label y-axis-label" x="19" y="68">10</text><text class="chart-axis-label y-axis-label" x="25" y="108">5</text><text class="chart-axis-label y-axis-label" x="25" y="148">0</text>
+              <path id="admissions-area" class="chart-area" d="M45 81 C78 78 112 61 145 57 S212 33 245 25 S312 66 345 73 S412 35 445 33 S512 43 545 49 S612 79 645 89 L645 145 L45 145 Z"/>
+              <path id="admissions-line" class="chart-line" d="M45 81 C78 78 112 61 145 57 S212 33 245 25 S312 66 345 73 S412 35 445 33 S512 43 545 49 S612 79 645 89"/>
+              <path id="discharges-line" class="chart-line secondary" d="M45 105 C78 101 112 92 145 89 S212 73 245 65 S312 52 345 49 S412 54 445 57 S512 69 545 73 S612 85 645 89"/>
+              <line class="chart-now-line" x1="645" y1="17" x2="645" y2="145"/><text class="chart-now-label" x="632" y="12">NOW</text>
+              <circle class="chart-point" cx="45" cy="81" r="3"/><circle class="chart-point" cx="145" cy="57" r="3"/><circle class="chart-point" cx="245" cy="25" r="3"/><circle class="chart-point" cx="345" cy="73" r="3"/><circle class="chart-point" cx="445" cy="33" r="3"/><circle class="chart-point" cx="545" cy="49" r="3"/><circle class="chart-point current" cx="645" cy="89" r="4"/>
+              <text class="chart-axis-label x-axis-label" x="35" y="169">6 AM</text><text class="chart-axis-label x-axis-label" x="135" y="169">8 AM</text><text class="chart-axis-label x-axis-label" x="232" y="169">10 AM</text><text class="chart-axis-label x-axis-label" x="334" y="169">12 PM</text><text class="chart-axis-label x-axis-label" x="436" y="169">2 PM</text><text class="chart-axis-label x-axis-label" x="536" y="169">4 PM</text><text class="chart-axis-label x-axis-label" x="633" y="169">6 PM</text>
+            </svg>
+          </article>
+
+          <article class="chart-card">
+            <div class="chart-heading"><i data-lucide="circle-gauge"></i><div><div class="chart-title">Bed utilization</div><div class="chart-subtitle">Current distribution across 350 beds</div></div></div>
+            <div class="donut-body">
+              <div class="donut-chart" role="img" aria-label="82 percent occupied, 13.7 percent vacant, 4.3 percent blocked"><div class="donut-center"><strong>82%</strong><span>Occupied</span></div></div>
+              <div class="donut-legend">
+                <div class="legend-row"><span class="legend-dot"></span><span class="legend-label">Occupied</span><span class="legend-value">287</span></div>
+                <div class="legend-row"><span class="legend-dot vacant"></span><span class="legend-label">Vacant</span><span class="legend-value">48</span></div>
+                <div class="legend-row"><span class="legend-dot blocked"></span><span class="legend-label">Blocked</span><span class="legend-value">15</span></div>
+                <div class="capacity-note"><i data-lucide="triangle-alert"></i><span>Paediatric is nearing capacity at <strong>97%</strong>.</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <!-- Content grid -->
       <div class="grid-2">
         <!-- Bed Overview -->
         <div class="card">
           <div class="card-title"><i data-lucide="bed-double"></i> Bed Overview by Unit</div>
-          <div class="card-row"><span class="card-label">ICU</span><span class="card-val">18 / 24 <span class="badge-count badge-red">6</span></span></div>
-          <div class="card-row"><span class="card-label">General Ward</span><span class="card-val">142 / 180 <span class="badge-count badge-green">38</span></span></div>
-          <div class="card-row"><span class="card-label">Private</span><span class="card-val">68 / 80 <span class="badge-count badge-blue">12</span></span></div>
-          <div class="card-row"><span class="card-label">Emergency</span><span class="card-val">24 / 30 <span class="badge-count badge-red">6</span></span></div>
-          <div class="card-row"><span class="card-label">Paediatric</span><span class="card-val">35 / 36 <span class="badge-count badge-red">1</span></span></div>
+          <div class="unit-row"><div class="unit-row-top"><span class="card-label">ICU</span><span class="card-val">18 / 24 <span class="badge-count badge-red">6</span></span></div><div class="unit-meter"><span style="width:75%"></span></div></div>
+          <div class="unit-row"><div class="unit-row-top"><span class="card-label">General Ward</span><span class="card-val">142 / 180 <span class="badge-count badge-green">38</span></span></div><div class="unit-meter"><span style="width:79%"></span></div></div>
+          <div class="unit-row"><div class="unit-row-top"><span class="card-label">Private</span><span class="card-val">68 / 80 <span class="badge-count badge-blue">12</span></span></div><div class="unit-meter warning"><span style="width:85%"></span></div></div>
+          <div class="unit-row"><div class="unit-row-top"><span class="card-label">Emergency</span><span class="card-val">24 / 30 <span class="badge-count badge-red">6</span></span></div><div class="unit-meter warning"><span style="width:80%"></span></div></div>
+          <div class="unit-row"><div class="unit-row-top"><span class="card-label">Paediatric</span><span class="card-val">35 / 36 <span class="badge-count badge-red">1</span></span></div><div class="unit-meter critical"><span style="width:97%"></span></div></div>
         </div>
 
         <!-- OT Overview -->
@@ -532,6 +645,43 @@
       const frame = document.querySelector('#hospilot-frame');
 
       if (window.lucide) window.lucide.createIcons();
+
+      const chartPeriods = {
+        today: {
+          admissions: 76, discharges: 61, net: '+15',
+          xLabels: ['6 AM', '8 AM', '10 AM', '12 PM', '2 PM', '4 PM', '6 PM'],
+          yLabels: ['15', '10', '5', '0'], pointY: [81, 57, 25, 73, 33, 49, 89],
+          admissionsPath: 'M45 81 C78 78 112 61 145 57 S212 33 245 25 S312 66 345 73 S412 35 445 33 S512 43 545 49 S612 79 645 89',
+          dischargesPath: 'M45 105 C78 101 112 92 145 89 S212 73 245 65 S312 52 345 49 S412 54 445 57 S512 69 545 73 S612 85 645 89'
+        },
+        week: {
+          admissions: 515, discharges: 422, net: '+93',
+          xLabels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          yLabels: ['90', '60', '30', '0'], pointY: [60, 48, 54, 42, 35, 51, 39],
+          admissionsPath: 'M45 60 C78 57 112 50 145 48 S212 52 245 54 S312 46 345 42 S412 37 445 35 S512 48 545 51 S612 43 645 39',
+          dischargesPath: 'M45 82 C78 78 112 69 145 67 S212 72 245 74 S312 62 345 59 S412 65 445 68 S512 63 545 61 S612 58 645 56'
+        }
+      };
+
+      document.querySelectorAll('[data-chart-period]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const period = chartPeriods[button.dataset.chartPeriod];
+          document.querySelectorAll('[data-chart-period]').forEach((option) => {
+            const selected = option === button;
+            option.classList.toggle('active', selected);
+            option.setAttribute('aria-pressed', String(selected));
+          });
+          document.querySelector('#admissions-total').textContent = period.admissions;
+          document.querySelector('#discharges-total').textContent = period.discharges;
+          document.querySelector('#net-total').textContent = period.net;
+          document.querySelector('#admissions-line').setAttribute('d', period.admissionsPath);
+          document.querySelector('#admissions-area').setAttribute('d', `${period.admissionsPath} L645 145 L45 145 Z`);
+          document.querySelector('#discharges-line').setAttribute('d', period.dischargesPath);
+          document.querySelectorAll('.x-axis-label').forEach((label, index) => { label.textContent = period.xLabels[index]; });
+          document.querySelectorAll('.y-axis-label').forEach((label, index) => { label.textContent = period.yLabels[index]; });
+          document.querySelectorAll('.chart-point').forEach((point, index) => { point.setAttribute('cy', period.pointY[index]); });
+        });
+      });
 
       let activeSession = null;
       let currentRun = 0;
